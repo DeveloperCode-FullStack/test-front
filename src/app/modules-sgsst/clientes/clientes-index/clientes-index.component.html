@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col col-md-12">
+                <app-buttonbar [botones]="arrayButtons" (eventNew)="new()"></app-buttonbar>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <app-table #datatable 
+            [columns]="columns" 
+            [arrayButtonsDatatable]="arrayButtonsDatatable" 
+            [urlDatatable]="urlDatatable"
+            (eventEdit)="edit($event)">
+        </app-table>
+    </div>
+</div>

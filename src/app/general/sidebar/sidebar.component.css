@@ -1,0 +1,40 @@
+
+.menu-name {
+    width: 100% !important;
+    font-size: 20px;
+    text-align: center;
+    margin: 36%;
+}
+
+body.iframe-mode .main-sidebar {
+  display: block !important; 
+}
+
+.btn-admin-panel{
+  font-size:14px !important;
+  border: none !important;
+  color: #000 !important;
+  background-color: var(--main-color) !important;
+}
+
+
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active,
+.sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+ background-color: rgba(0, 0, 0, .1) !important;
+}
+
+[class*=sidebar-light-] .nav-sidebar>.nav-item.menu-open>.nav-link, [class*=sidebar-light-] .nav-sidebar>.nav-item:hover>.nav-link {
+   background-color: rgba(0,0,0,.1);
+   color: #212529;
+   box-shadow: 0 1px 3px rgb(0 0 0 / 12%),
+       0 1px 2px rgb(0 0 0 / 24%);
+}
+
+.select-flags {
+  margin-right: 10px !important;
+  color:#000 !important
+}
+
+.dropdown-toggle::after{
+  font-size: 10px !important;
+}

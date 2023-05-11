@@ -1,0 +1,38 @@
+<div *ngIf="!dropdown; else isDropdown">
+    <div #botonesNormal class="button-group">
+  
+      <a title="Descargar archivo excel" role="button" class="float-left text-success h4 m-1 cursor-pointer" *ngIf="validateIfExists('btn-excel') || validateIfExists('btn-export')" (click)="eventExport.emit('excel')" ><i class="fas fa-file-excel"></i></a>
+      <a title="Descargar archivo csv" role="button" class="float-left text-primary h4 m-1 cursor-pointer" *ngIf="validateIfExists('btn-csv') || validateIfExists('btn-export')" (click)="eventExport.emit('csv')"><i class="fas fa-file-csv"></i></a>
+      <a title="Descargar archivo pdf" role="button" class="float-left text-danger h4 m-1 cursor-pointer" *ngIf="validateIfExists('btn-pdf') || validateIfExists('btn-export')" (click)="eventExport.emit('pdf')"><i class="fas fa-file-pdf"></i></a>
+  
+      <button class="btn btn-sm btn-primary float-right" *ngIf="validateIfExists('btn-nuevo')" (click)="eventNew.emit()"><i class="fas fa-plus"></i> Nuevo</button>
+      <button type="submit" class="btn btn-sm btn-primary float-right" *ngIf="validateIfExists('btn-guardar')" (click)="eventSave.emit()"><i class="far fa-save"></i> Guardar</button>
+      <button class="btn btn-sm btn-primary float-right" *ngIf="validateIfExists('btn-modificar')" (click)="eventEdit.emit()"><i class="far fa-edit"></i> Actualizar</button>
+      <button class="btn btn-sm btn-danger float-right" *ngIf="validateIfExists('btn-eliminar')" (click)="eventDelete.emit()"><i class="far fa-trash-alt"></i> Eliminar</button>
+      <button class="btn btn-sm btn-info float-right" *ngIf="validateIfExists('btn-buscar')" (click)="eventSearch.emit()"><i class="fas fa-search"></i> Buscar</button>
+      <button class="btn btn-sm btn-danger float-right" type="button" *ngIf="validateIfExists('btn-limpiar')" (click)="eventClean.emit()"><i class="fas fa-broom"></i> Limpiar</button> 
+      <button class="btn btn-sm btn-secondary float-right" type="button" *ngIf="validateIfExists('btn-cancelar')" (click)="eventCancel.emit()"><i class="fas fa-times"></i> Cancelar</button>
+    </div>
+  </div> 
+  
+  <ng-template #isDropdown>
+    <div #botonesDropdown class="btn-group center ">
+      <button type="button" id="$id" class="btn  btn-default btn-actions-datatable dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accciones</button>
+      <div id="dropdown_$id" class="dropdown-menu menu">
+  
+        <a data-id="$id" id="btn-dropdown-modificar" (click)="eventEdit.emit()" *ngIf="validateIfExists('btn-modificar')"
+          name="btn-dropdown-modificar" class="dropdown-item btn btn-mini btn-dropdown-modificar" title="Editar">
+          <i class="far fa-edit" aria-hidden="true" data-id="$id"></i>
+          <div class="d-inline-block d-sm-inline-block ml-1" data-id="$id">Editar</div>
+        </a>
+  
+        <a data-id="$id" id="btn-dropdown-eliminar"  (click)="eventDelete.emit()" *ngIf="validateIfExists('btn-eliminar')"
+          name="btn-dropdown-eliminar" class="dropdown-item btn btn-mini btn-dropdown-eliminar" title="Eliminar">
+          <i class="fas fa-trash" aria-hidden="true" data-id="$id"></i>
+          <div class="d-inline-block d-sm-inline-block ml-1" data-id="$id">Eliminar</div>
+        </a>
+  
+      </div>
+    </div>
+  </ng-template>
+   

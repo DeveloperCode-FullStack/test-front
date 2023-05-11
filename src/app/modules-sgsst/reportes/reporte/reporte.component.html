@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="frmFiltros">
+            <div class="row">
+                <div class="input-group">
+                    <label class="col col-md-1 col-lg-1">Fecha inicio</label>
+                    <div class="form-group col col-md-3 col-lg-3">
+                        <input type="date" formControlName="fechaInicio" class="form-control" placeholder="Fecha de inicio">
+                        <app-validation></app-validation>
+                    </div>     
+                    <label class="col col-md-1 col-lg-1">Fecha fin</label>
+                    <div class="form-group col col-md-3 col-lg-3">
+                        <input type="date" formControlName="fechaFin" class="form-control" placeholder="Fecha de fin">
+                        <app-validation></app-validation>
+                    </div>   
+                    <label class="col col-md-1 col-lg-1">Número de Cuenta</label>
+                    <div class="form-group col col-md-3 col-lg-3">
+                        <ng-select bindValue="id" bindLabel="numeroCuenta" [items]="listAccounts" formControlName="cuentaId" placeholder="Seleccione un item"></ng-select>
+                        <app-validation></app-validation>
+                    </div>
+                </div>
+            </div>
+            <app-buttonbar [botones]="arrayButtons" (eventSearch)="buscar()"></app-buttonbar>
+        </form>
+        <div *ngIf="busqueda">
+            <app-reporte-index [urlDatatable]="urlDatatable"></app-reporte-index>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,35 @@
+<form [formGroup]="frmMovimientos">
+    <div class="modal-header modal-header-style">
+        <h4 class="modal-title" id="modal-basic-title">{{ title }}</h4>
+    </div>
+    <div class="modal-body">        
+        <div class="row">
+            <div class="input-group">                
+                <label class="col col-md-2 col-lg-2">Tipo Movimiento</label>
+                <div class="form-group col col-md-4 col-lg-4">
+                    <ng-select bindValue="id" bindLabel="name" [items]="listTypeMovement" formControlName="tipoMovimiento" placeholder="Seleccione un item"></ng-select>
+                    <app-validation></app-validation>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-group">
+                <label class="col col-md-2 col-lg-2">Valor Movimiento</label>
+                <div class="form-group col col-md-4 col-lg-4">
+                    <input type="number" formControlName="valor" class="form-control" placeholder="Valor movimiento">
+                    <app-validation></app-validation>
+                </div>                              
+            </div>
+            <div class="input-group">                
+                <label class="col col-md-2 col-lg-2">Número de Cuenta</label>
+                <div class="form-group col col-md-4 col-lg-4">
+                    <ng-select bindValue="id" bindLabel="numeroCuenta" [items]="listAccounts" formControlName="cuentaId" placeholder="Seleccione un item"></ng-select>
+                    <app-validation></app-validation>
+                </div>
+            </div>
+        </div>       
+    </div>
+    <div class="modal-footer">
+        <app-buttonbar [botones]="arrayButtons" (eventSave)="save()" (eventCancel)="cancel()"></app-buttonbar>
+    </div>
+</form>

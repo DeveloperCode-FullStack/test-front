@@ -1,0 +1,47 @@
+<form [formGroup]="frmCuenta">
+    <div class="modal-header modal-header-style">
+        <h4 class="modal-title" id="modal-basic-title">{{ title }}</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="input-group">
+                <label class="col col-md-2 col-lg-2">Activo</label>
+                <div class="form-group col col-md-10">
+                    <ui-switch formControlName="estado"></ui-switch>
+                    <app-validation></app-validation>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-group">
+                <label class="col col-md-2 col-lg-2">Número Cuenta</label>
+                <div class="form-group col col-md-4 col-lg-4">
+                    <input type="text" formControlName="numeroCuenta" class="form-control" placeholder="Número Cuenta">
+                    <app-validation></app-validation>
+                </div>
+                <label class="col col-md-2 col-lg-2">Tipo Cuenta</label>
+                <div class="form-group col col-md-4 col-lg-4">
+                    <ng-select bindValue="id" bindLabel="name" [items]="listTypeAccount" formControlName="tipoCuenta" placeholder="Seleccione un item"></ng-select>
+                    <app-validation></app-validation>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-group">
+                <label class="col col-md-2 col-lg-2">Saldo inicial</label>
+                <div class="form-group col col-md-4 col-lg-4">
+                    <input type="number" formControlName="saldoInicial" class="form-control" placeholder="Saldo Inicial">
+                    <app-validation></app-validation>
+                </div>
+                <label class="col col-md-2 col-lg-2">Cliente</label>
+                <div class="form-group col col-md-4 col-lg-4">
+                    <ng-select bindValue="id" bindLabel="nombre" [items]="listClients" formControlName="clienteId" placeholder="Seleccione un item"></ng-select>
+                    <app-validation></app-validation>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <app-buttonbar [botones]="arrayButtons" (eventSave)="save()" (eventCancel)="cancel()"></app-buttonbar>
+    </div>
+</form>
